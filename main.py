@@ -67,3 +67,7 @@ def main():
         print(f"Archivo excel reprocesado guardado como {output_file}")
     except Exception as e:
         print(f"Error al guardar el excel: {e}")
+
+
+if __name__ == "__main__":
+    main()
