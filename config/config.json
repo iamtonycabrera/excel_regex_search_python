@@ -1,0 +1,5 @@
+{
+    "input": "example.xlsx",
+    "sheet": "Hoja1",
+    "search": "Pattern"
+}
