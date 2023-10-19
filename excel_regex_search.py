@@ -68,6 +68,7 @@ def main():
 
     # Generar y guardar el Excel reprocesado con la respuesta con manejo de errores
     try:
+        workbook.save(output_file)
         print(f"Archivo excel reprocesado guardado como {output_file}")
     except Exception as e:
         print(f"Error al guardar el excel: {e}")
