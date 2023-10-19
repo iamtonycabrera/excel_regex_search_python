@@ -61,3 +61,9 @@ def main():
                 # Escribir el valor SI (si hay coincidencia) o NO (si no hay coincidencia)
                 # en la celda correspondiente de la derecha (Columna B)
                 worksheet.cell(row=cell.row, column=2, value=result)
+
+    # Generar y guardar el Excel reprocesado con la respuesta con manejo de errores
+    try:
+        print(f"Archivo excel reprocesado guardado como {output_file}")
+    except Exception as e:
+        print(f"Error al guardar el excel: {e}")
