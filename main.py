@@ -29,7 +29,7 @@ def main():
         with open(args.config_file, "r") as config_file:
             config = json.load(config_file)
     except Exception as e:
-        print("Hay un problema con el excel")
+        print(f"Hay un problema con el excel: {e}")
         return
 
     # Extraer parámetros de configuración del JSON
