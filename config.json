@@ -1,5 +1,5 @@
 {
-    "input": "example.xlsx",
-    "sheet": "Sheet1",
-    "search": "Pattern"
+    "input": "ejemplo.xlsx",
+    "sheet": "Hoja1",
+    "search": "ABC"
 }

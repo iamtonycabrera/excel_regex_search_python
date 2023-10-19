@@ -1,7 +1,7 @@
 import argparse
 import json
-import openpyxl
 import re
+import openpyxl
 
 
 def main():
@@ -25,8 +25,12 @@ def main():
 
     # Cargar configuración desde el JSON
     # Abrir JSON y leer (r)
-    with open(args.config_file, "r") as config_file:
-        config = json.load(config_file)
+    try:
+        with open(args.config_file, "r") as config_file:
+            config = json.load(config_file)
+    except Exception as e:
+        print("Hay un problema con el excel")
+        return
 
     # Extraer parámetros de configuración del JSON
     input_file = config.get("input")
@@ -39,7 +43,7 @@ def main():
         return
 
     # Nombre archivo salida. Si no se especifica, usar nombre del script con extensión .xlsx
-    output_file = args.output_file or "%(prog)s.xlsx"
+    output_file = args.output_file or "output.xlsx"
 
     ### OPENPYXL ##
     # Abrir fichero excel y seleccionar la hoja (sheet), manejando errores
