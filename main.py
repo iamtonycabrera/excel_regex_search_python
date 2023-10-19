@@ -40,3 +40,24 @@ def main():
 
     # Nombre archivo salida. Si no se especifica, usar nombre del script con extensión .xlsx
     output_file = args.output_file or "%(prog)s.xlsx"
+
+    ### OPENPYXL ##
+    # Abrir fichero excel y seleccionar la hoja (sheet), manejando errores
+    try:
+        workbook = openpyxl.load_workbook(input_file)
+        worksheet = workbook[sheet_name]
+    except Exception as e:
+        print(f"Error al abrir el fichero Excel: {e}")
+        return
+
+    # Recorrer la columna A de la hoja indicada en el JSON
+    for row in worksheet.iter_rows(min_row=1, min_col=1):
+        for cell in row:
+            value = cell.value
+            if value is not None:
+                # El modulo 're' proporciona operaciones de matching
+                match = re.search(search_pattern, str(value))
+                result = "SI" if match else "NO"
+                # Escribir el valor SI (si hay coincidencia) o NO (si no hay coincidencia)
+                # en la celda correspondiente de la derecha (Columna B)
+                worksheet.cell(row=cell.row, column=2, value=result)
